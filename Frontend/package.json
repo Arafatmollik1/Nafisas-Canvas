@@ -7,8 +7,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.16",
-    "blobmaker": "0.0.1",
-    "blobs": "^2.3.0-beta.2",
     "postcss": "^8.4.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
