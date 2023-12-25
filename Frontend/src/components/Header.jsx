@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Logo from './Logo';
 const Header = () => {
   return (
-    <header className="bg-white shadow">
-      {/* Add your navigation bar, logo, etc. here */}
+    <header className="bg-transparent">
+      <Logo />
       <nav>
         {/* Navigation content */}
       </nav>
