@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
   { id: 6, name: 'Mandala', category: 'Mandala painting', price: '50 €', imageUrl: '/product_pictures/mandala.jpg' },
 ]; */
 
-const Products = () => {
+const Products = ({ addToCart }) => {
   const [productsData, setProducts] = useState([]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Products = () => {
                   <p className="text-yellow-500 text-xs font-semibold tracking-widest uppercase mb-1">{product.category_name}</p>
                   <h2 className="text-gray-900 title-font text-lg font-medium">{product.name}</h2>
                   <p className=" font-bold mt-1">{product.price}</p>
-                  <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500">
+                  <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500" onClick={() => addToCart(product)}>
                     Add to cart
                   </button>
                 </div>

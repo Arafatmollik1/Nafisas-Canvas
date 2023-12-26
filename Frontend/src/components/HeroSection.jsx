@@ -3,7 +3,7 @@ import React from 'react';
 const HeroSection = () => {
 
   return (
-    <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center py-24 px-6 lg:px-24">
+    <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center py-4 px-6 lg:px-24">
       <div className="flex flex-col w-full lg:w-auto justify-center items-start text-left">
         <h1 className="text-3xl lg:text-4xl font-medium text-gray-900">
           Hello, Welcome to my gallery!

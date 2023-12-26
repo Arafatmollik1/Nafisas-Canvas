@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ProductCategories = () => {
+const ProductCategories = ({ onAddToCart }) => {
   const [productsData, setProductsData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [displayedProducts, setDisplayedProducts] = useState([]);
@@ -63,7 +63,7 @@ const ProductCategories = () => {
                 <p className="pt-5 text-yellow-500 text-xs font-semibold tracking-widest uppercase mb-1">{product.category_name}</p>
                 <h2 className="text-gray-900 title-font text-lg font-medium">{product.name}</h2>
                 <p className="font-bold">{product.price}</p>
-                <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500">
+                <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500" onClick={() => onAddToCart(product)}>
                     Add to cart
                 </button>
               </div>

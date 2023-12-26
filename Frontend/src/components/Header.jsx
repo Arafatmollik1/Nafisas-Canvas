@@ -3,7 +3,7 @@ import { FaShoppingCart } from 'react-icons/fa'; // Import the cart icon
 import { BiSearch } from 'react-icons/bi'; // Import the search icon
 import Logo from './Logo';
 
-const Header = () => {
+const Header = ({ onCartIconClick }) => {
   return (
     <header className="bg-transparent p-4">
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between">
@@ -18,7 +18,7 @@ const Header = () => {
           </div>
           {/* Cart icon */}
           <div className="px-5">
-            <FaShoppingCart className="text-2xl cursor-pointer" />
+            <FaShoppingCart className="text-2xl cursor-pointer" onClick={onCartIconClick} />
           </div>
         </div>
       </div>

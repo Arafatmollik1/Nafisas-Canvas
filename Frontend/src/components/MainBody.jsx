@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import Products from './Products'; // Assuming you have a Products component
 
-const MainBody = () => {
+const MainBody = ({onAddToCart}) => {
   return (
     <main className="flex-grow">
       <section className="text-center p-8">
@@ -10,7 +10,7 @@ const MainBody = () => {
         <HeroSection/>
         {/* ... other sections ... */}
       </section>
-      <Products />
+      <Products addToCart={onAddToCart}/>
     </main>
   );
 };
