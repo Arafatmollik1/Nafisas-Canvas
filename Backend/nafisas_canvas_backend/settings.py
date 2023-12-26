@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "nafisas_canvas_app",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
