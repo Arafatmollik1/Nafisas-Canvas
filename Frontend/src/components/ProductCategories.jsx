@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const productsData = [
-    { id: 1, name: 'Dessert Night', category: 'Oil painting', price: '15 €', imageUrl: '/product_pictures/dessert.jpg' },
-    { id: 2, name: 'Black Texts', category: 'glittery painting',  price: '25 €', imageUrl: '/product_pictures/black-texts.jpg' },
-    { id: 3, name: 'Greeny Things', category: 'Oil painting', price: '20 €', imageUrl: '/product_pictures/greeny-things.jpg' },
-    { id: 4, name: 'Norway Place', category: 'Dry painting', price: '10 €', imageUrl: '/product_pictures/norway-place.png' },
-    { id: 5, name: 'Black Names', category: 'Dry painting', price: '55 €', imageUrl: '/product_pictures/black-names.jpg' },
-    { id: 6, name: 'Mandala', category: 'Mandala painting', price: '50 €', imageUrl: '/product_pictures/mandala.jpg' },
+  { id: 1, name: 'Desert Night', category: 'Oil painting', price: '15 €', imageUrl: '/product_pictures/dessert.jpg' },
+  { id: 2, name: 'Black Texts', category: 'Glittery painting',  price: '25 €', imageUrl: '/product_pictures/black-texts.jpg' },
+  { id: 3, name: 'Greeny Things', category: 'Oil painting', price: '20 €', imageUrl: '/product_pictures/greeny-things.jpg' },
+  { id: 4, name: 'Norway Place', category: 'Dry painting', price: '10 €', imageUrl: '/product_pictures/norway-place.png' },
+  { id: 5, name: 'Black Names', category: 'Dry painting', price: '55 €', imageUrl: '/product_pictures/black-names.jpg' },
+  { id: 6, name: 'Mandala', category: 'Mandala painting', price: '50 €', imageUrl: '/product_pictures/mandala.jpg' },
 ];
 
 const ProductCategories = () => {
