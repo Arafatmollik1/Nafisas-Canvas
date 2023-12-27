@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 
 /* const productsData = [
@@ -13,6 +14,7 @@ import { useEffect, useState } from 'react';
 
 const Products = ({ addToCart }) => {
   const [productsData, setProducts] = useState([]);
+  const [animationStates, setAnimationStates] = useState({});
 
   useEffect(() => {
       // Replace 'http://localhost:8000' with your Django server's URL
@@ -25,6 +27,14 @@ const Products = ({ addToCart }) => {
               console.error('Error fetching data: ', error);
           });
   }, []);
+  const handleAddToCartClick = (product) => {
+    addToCart(product);
+    setAnimationStates(prev => ({ ...prev, [product.id]: true }));
+
+    setTimeout(() => {
+      setAnimationStates(prev => ({ ...prev, [product.id]: false }));
+    }, 1000); // Duration of the animation
+  };
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-4 mx-auto">
@@ -43,9 +53,12 @@ const Products = ({ addToCart }) => {
                   <p className="text-yellow-500 text-xs font-semibold tracking-widest uppercase mb-1">{product.category_name}</p>
                   <h2 className="text-gray-900 title-font text-lg font-medium">{product.name}</h2>
                   <p className=" font-bold mt-1">{product.price}</p>
-                  <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500" onClick={() => addToCart(product)}>
+                  <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500" onClick={() => handleAddToCartClick(product)}>
                     Add to cart
                   </button>
+                  {animationStates[product.id] && (
+                    <FaShoppingCart className="text-2xl absolute transform translate-x-12 fade-out" />
+                  )}
                 </div>
               </div>
             </div>

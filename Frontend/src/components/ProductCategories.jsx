@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const ProductCategories = ({ onAddToCart }) => {
   const [productsData, setProductsData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [animationStates, setAnimationStates] = useState({});
   const location = useLocation();
   // Effect for handling passed state from the Header component
   useEffect(() => {
     if (location.state?.selectedProduct) {
       setDisplayedProducts([location.state.selectedProduct]);
+      setSelectedCategory(location.state.selectedProduct.category_name);
     }
   }, [location.state]);
 
@@ -33,6 +36,14 @@ const ProductCategories = ({ onAddToCart }) => {
       setDisplayedProducts(productsData.filter(product => product.category_name === selectedCategory));
     }
   }, [selectedCategory, productsData]);
+  const handleAddToCartClick = (product) => {
+    onAddToCart(product);
+    setAnimationStates(prev => ({ ...prev, [product.id]: true }));
+
+    setTimeout(() => {
+      setAnimationStates(prev => ({ ...prev, [product.id]: false }));
+    }, 1000); // Duration of the animation
+  };
 
   // Extract unique categories
   const categories = ['All', ...new Set(productsData.map(product => product.category_name))];
@@ -42,7 +53,6 @@ const ProductCategories = ({ onAddToCart }) => {
       <div className="text-center p-10 bg-gray-200">
         <h1 className="text-3xl font-bold">All Products</h1>
       </div>
-
 
       <div className="container mx-auto flex flex-wrap py-6">
 
@@ -64,16 +74,19 @@ const ProductCategories = ({ onAddToCart }) => {
         <div className="w-full sm:w-3/4 p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {displayedProducts.map(product => (
-              <div key={product.id} className="border border-gray-200 rounded-lg p-4 overflow-hidden">
+              <div key={product.id} className="border border-gray-200 rounded-lg p-4 overflow-hidden relative">
                 <div className="bg-gray-100 p-2">
-                    <img src={product.image} alt={product.name} className="object-contain h-48 w-full" />
+                  <img src={product.image} alt={product.name} className="object-contain h-48 w-full" />
                 </div>
                 <p className="pt-5 text-yellow-500 text-xs font-semibold tracking-widest uppercase mb-1">{product.category_name}</p>
                 <h2 className="text-gray-900 title-font text-lg font-medium">{product.name}</h2>
                 <p className="font-bold">{product.price}</p>
-                <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500" onClick={() => onAddToCart(product)}>
-                    Add to cart
+                <button className="mt-4 bg-yellow-400 text-black inline-flex items-center px-6 py-2 rounded-md font-semibold transition-colors duration-300 hover:bg-yellow-500" onClick={() => handleAddToCartClick(product)}>
+                  Add to cart
                 </button>
+                {animationStates[product.id] && (
+                  <FaShoppingCart className="text-2xl absolute  transform translate-x-12 fade-out" />
+                )}
               </div>
             ))}
           </div>
