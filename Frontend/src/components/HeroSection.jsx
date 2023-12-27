@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
 
@@ -12,12 +13,18 @@ const HeroSection = () => {
           You can find my wonderful artwork and purchase them here!
         </p>
         <div className="flex justify-center lg:justify-start gap-4">
-          <button className="inline-flex items-center text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg transition-colors duration-300">
+          <Link
+            to="/product-categories"
+            className="inline-flex items-center text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg transition-colors duration-300"
+          >
             See more
-          </button>
-          <button className="inline-flex items-center text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg transition-colors duration-300">
-            LinkedIn
-          </button>
+          </Link>
+          <a
+            href="https://www.facebook.com/subhe.nafisa" target="_blank" rel="noreferrer"
+            className="inline-flex items-center text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-lg transition-colors duration-300"
+          >
+            Facebook
+          </a>
         </div>
       </div>
       <div className="w-full lg:py-0 py-6">
