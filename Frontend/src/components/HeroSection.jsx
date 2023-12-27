@@ -30,7 +30,7 @@ const HeroSection = () => {
       <div className="w-full lg:py-0 py-6">
           <div className="relative w-full">
             <img
-              className="relative rounded-lg object-cover object-center w-auto mx-auto lg:mx-0 z-0"  // Adjust the size of the image as needed
+              className="relative rounded-lg object-cover object-center w-full mx-auto lg:mx-0 z-0"  // Adjust the size of the image as needed
               alt="hero"
               src="/Nafis_main_pic.png"
             />
