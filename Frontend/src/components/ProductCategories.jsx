@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ProductCategories = ({ onAddToCart }) => {
   const [productsData, setProductsData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [displayedProducts, setDisplayedProducts] = useState([]);
+  const location = useLocation();
+  // Effect for handling passed state from the Header component
+  useEffect(() => {
+    if (location.state?.selectedProduct) {
+      setDisplayedProducts([location.state.selectedProduct]);
+    }
+  }, [location.state]);
 
   useEffect(() => {
     // Fetch products from the API

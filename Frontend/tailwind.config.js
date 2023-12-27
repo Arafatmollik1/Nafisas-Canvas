@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
-        brusher: ['Brusher', 'cursive'], // Add this line
+        brusher:  ['"Single Day"', 'sans-serif'], // Add this line
       },
     },
   },
