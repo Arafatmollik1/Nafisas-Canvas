@@ -15,13 +15,13 @@ const HeroSection = () => {
         <div className="flex justify-center lg:justify-start gap-4">
           <Link
             to="/product-categories"
-            className="inline-flex items-center text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg transition-colors duration-300"
+            className="inline-flex items-center text-white bg-yellow-500 border-0 py-2 px-2 focus:outline-none hover:bg-yellow-600 rounded text-lg transition-colors duration-300"
           >
             See more
           </Link>
           <a
             href="https://www.facebook.com/subhe.nafisa" target="_blank" rel="noreferrer"
-            className="inline-flex items-center text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-lg transition-colors duration-300"
+            className="inline-flex items-center text-white bg-blue-500 border-0 py-2 px-2 focus:outline-none hover:bg-blue-700 rounded text-lg transition-colors duration-300"
           >
             Facebook
           </a>
